@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require_relative 'config/config.rb'
+require_relative 'model/coding_activity'
+
+Config.load
+client = WakatimeClient.new
+client.populate_durations

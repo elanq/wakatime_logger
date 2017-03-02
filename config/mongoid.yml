@@ -1,0 +1,6 @@
+development:
+  clients:
+    default:
+      database: wakatime_log
+      hosts:
+        - localhost:27017
