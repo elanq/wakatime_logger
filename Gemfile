@@ -5,8 +5,10 @@ gem 'mongoid', '~> 5.2'
 gem 'dotenv'
 gem 'faraday'
 
+
 group :test, :development do
   gem 'rspec'
+  gem 'webmock'
   gem 'pry-byebug'
   gem 'mongoid-rspec', '~> 3.0'
 end

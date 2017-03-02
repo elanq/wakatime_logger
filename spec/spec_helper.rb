@@ -1,3 +1,5 @@
+require 'webmock/rspec'
+
 require_relative '../config/config.rb'
 require_relative '../model/coding_activity'
 
@@ -17,6 +19,7 @@ require_relative '../model/coding_activity'
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

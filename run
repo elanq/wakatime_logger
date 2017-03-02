@@ -4,4 +4,4 @@ require_relative 'model/coding_activity'
 
 Config.load
 client = WakatimeClient.new
-client.populate_durations
+summaries = client.populate_summaries

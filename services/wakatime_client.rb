@@ -11,15 +11,17 @@ class WakatimeClient
                   end
   end
 
-  def populate_durations(date = DateTime.now)
-    formatted_date = date.strftime("%F")
+  def populate_summaries(start_date = DateTime.now, end_date = DateTime.now)
+    formatted_start = start_date.strftime("%F")
+    formatted_end = end_date.strftime("%F")
     response = connection.get do |request|
-      request.url "#{ENV['WAKATIME_DURATION_URL']}"
+      request.url "#{ENV['WAKATIME_SUMMARIES_URL']}"
       request.headers['Authorization'] = api_encoded
-      request.params['date'] = formatted_date
+      request.params['start'] = formatted_start
+      request.params['end'] = formatted_end
     end
 
-    puts response.body
+    JSON.parse(response.body)
   end
 
   private

@@ -1,6 +1,7 @@
 module Config
   require 'mongoid'
   require 'dotenv'
+  require 'pry-byebug'
 
   require_relative '../services/wakatime_client.rb'
   module_function
