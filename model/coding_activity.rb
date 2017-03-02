@@ -3,8 +3,7 @@ class CodingActivity
   include ::Mongoid::Timestamps
 
   field :project_name, type: String
-  field :activity_time, type: Integer
-  field :collection_date, type: Integer
+  field :activity_collection, type: Array
 
   def self.save_response(response)
     editors = response['data'].first
@@ -12,8 +11,8 @@ class CodingActivity
     projects.each do |project|
       coding_activity = CodingActivity.find_or_create_by(project_name: project['name'])
       coding_activity.project_name = project['name']
-      coding_activity.activity_time = project['total_seconds']
-      coding_activity.collection_date = Time.now.to_i
+      value = {total_seconds: project['total_seconds'], collection_time: Time.now.to_i}
+      coding_activity.push(activity_collection: value)
 
       coding_activity.save!
     end
