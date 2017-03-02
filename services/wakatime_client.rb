@@ -3,8 +3,8 @@ class WakatimeClient
   require 'faraday'
 
   def initialize
-    api_key = ENV['WAKATIME_API_KEY']
-    @api_encoded = Base64.encode64(api_key)
+    @api_key = ENV['WAKATIME_API_KEY']
+    @api_encoded = "Basic #{Base64.encode64(api_key)}"
     @connection = ::Faraday.new(url: ENV['WAKATIME_HOST']) do |faraday|
                     faraday.adapter   Faraday.default_adapter
                     faraday.response  :logger

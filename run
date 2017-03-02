@@ -5,3 +5,4 @@ require_relative 'model/coding_activity'
 Config.load
 client = WakatimeClient.new
 summaries = client.populate_summaries
+CodingActivity.save_response(summaries)

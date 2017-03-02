@@ -4,6 +4,7 @@ module Config
   require 'pry-byebug'
 
   require_relative '../services/wakatime_client.rb'
+
   module_function
 
   def load
